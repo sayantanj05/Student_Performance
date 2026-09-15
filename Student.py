@@ -15,7 +15,8 @@ csv_file = os.path.join(path, [f for f in os.listdir(path) if f.endswith(".csv")
 df = pd.read_csv(csv_file)
 
 print("Dataset loaded successfully ")
-
+print("Dataset downloaded to:")
+print(path)
 print(df.head())
 print("\n========== SHAPE ==========")
 print(df.shape)
@@ -30,3 +31,12 @@ print(df.describe())
 
 print("\n========== MISSING VALUES ==========")
 print(df.isnull().sum())
+
+num_cols = df.select_dtypes(include=np.number).columns
+cat_cols = df.select_dtypes(include='object').columns
+
+print("\nNumerical Columns")
+print(num_cols)
+
+print("\nCategorical Columns")
+print(cat_cols)
