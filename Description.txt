@@ -1,0 +1,21 @@
+Student Performance Prediction System
+Project Description
+
+The objective of this project is to develop a machine learning model that predicts student academic performance based on relevant academic and behavioural factors.
+
+The system may use features such as attendance, previous marks, assignment performance, study hours, participation and other available student-related attributes to predict the student's expected academic performance.
+
+Developer are expected to:
+
+Select or create a suitable student-performance dataset.(use Kaggele)
+Clean and preprocess the data.
+Perform exploratory data analysis.
+Identify important features affecting performance.
+Divide the dataset into training and testing sets.
+Apply suitable machine learning algorithms.
+Train and test the model.
+Evaluate model performance using appropriate metrics.
+Visualize and interpret the results.
+
+Expected Outcome:
+A simple working machine learning system that can predict student performance and identify the factors that have an important relationship with the prediction.
