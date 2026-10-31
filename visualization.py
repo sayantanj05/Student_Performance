@@ -21,19 +21,21 @@ def plot_model_comparison(summary_df):
 
     axes[0].set_xlabel("Model")
     axes[0].set_ylabel("Error (lower is better)")
-    axes[0].set_title("Model Comparison — Error Metrics")
+    axes[0].set_title("Model Comparison â€” Error Metrics")
     axes[0].set_xticks(x + width * 1.5)
     axes[0].set_xticklabels(summary_df["Model"], rotation=15)
     axes[0].legend()
 
     axes[1].bar(summary_df["Model"], summary_df["R2"], color="steelblue")
-    axes[1].set_ylabel("R² Score")
-    axes[1].set_title("Model Comparison — R² Score (higher is better)")
+    axes[1].set_ylabel("RÂ² Score")
+    axes[1].set_title("Model Comparison â€” RÂ² Score (higher is better)")
     axes[1].set_ylim(0, 1)
     for i, v in enumerate(summary_df["R2"]):
         axes[1].text(i, v + 0.02, f"{v:.4f}", ha="center")
 
     plt.tight_layout()
+    plt.savefig("model_comparison.png", dpi=300, bbox_inches='tight')
+    print("Saved: model_comparison.png")
     plt.show()
 
 
@@ -48,9 +50,11 @@ def plot_residuals(results, target_col="G3"):
         axes[i].axhline(y=0, color="red", linestyle="--")
         axes[i].set_xlabel("Predicted")
         axes[i].set_ylabel("Residuals")
-        axes[i].set_title(f"{res['Model']} — Residuals")
+        axes[i].set_title(f"{res['Model']} â€” Residuals")
     plt.suptitle(f"Residual Plots ({target_col})", fontsize=14)
     plt.tight_layout()
+    plt.savefig("residual_plots.png", dpi=300, bbox_inches='tight')
+    print("Saved: residual_plots.png")
     plt.show()
 
 
@@ -60,11 +64,13 @@ def plot_feature_importance_rf(model, feature_names, model_name="Random Forest")
         indices = np.argsort(importances)[::-1]
 
         plt.figure(figsize=(10, 6))
-        plt.title(f"{model_name} — Feature Importance")
+        plt.title(f"{model_name} â€” Feature Importance")
         plt.bar(range(len(importances)), importances[indices], color="steelblue", align="center")
         plt.xticks(range(len(importances)), [feature_names[i] for i in indices], rotation=45, ha="right")
         plt.ylabel("Importance")
         plt.tight_layout()
+        plt.savefig("feature_importance_rf.png", dpi=300, bbox_inches='tight')
+        print("Saved: feature_importance_rf.png")
         plt.show()
     else:
         print(f"{model_name} does not have feature_importances_ attribute.")
@@ -104,6 +110,8 @@ def plot_target_vs_features(df, target_col="G3", top_n=6):
 
     plt.suptitle(f"Top {top_n} Features vs {target_col}", fontsize=14)
     plt.tight_layout()
+    plt.savefig("target_vs_features.png", dpi=300, bbox_inches='tight')
+    print("Saved: target_vs_features.png")
     plt.show()
 
 

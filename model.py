@@ -78,6 +78,8 @@ def plot_predictions(results, target_col="G3"):
         axes[i].legend()
     plt.suptitle(f"Actual vs Predicted ({target_col})", fontsize=14)
     plt.tight_layout()
+    plt.savefig("actual_vs_predicted.png", dpi=300, bbox_inches='tight')
+    print("Saved: actual_vs_predicted.png")
     plt.show()
 
 

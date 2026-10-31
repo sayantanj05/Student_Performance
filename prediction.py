@@ -60,6 +60,8 @@ def predict_g4(df, target_col="G3"):
     plt.title("G3 vs Predicted G4")
     plt.legend()
     plt.tight_layout()
+    plt.savefig("g3_vs_g4_predicted.png", dpi=300, bbox_inches='tight')
+    print("Saved: g3_vs_g4_predicted.png")
     plt.show()
 
     plt.figure(figsize=(8, 5))
@@ -68,6 +70,8 @@ def predict_g4(df, target_col="G3"):
     plt.ylabel("Frequency")
     plt.title("Distribution of Predicted G4")
     plt.tight_layout()
+    plt.savefig("distribution_g4_predicted.png", dpi=300, bbox_inches='tight')
+    print("Saved: distribution_g4_predicted.png")
     plt.show()
 
     result_df.to_csv("predicted_G4_results.csv", index=False)
