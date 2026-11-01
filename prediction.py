@@ -41,6 +41,11 @@ def predict_g4(df, target_col="G3"):
 
     print(f"\n========== PREDICTED RESULTS (All Students) ==========")
     result_df = df[["Student_ID", "school", "sex", "age", "G1", "G2", "G3", "G4_Predicted"]].copy()
+    # Decode label-encoded categorical columns back to original values
+    school_map = {0: "GP", 1: "MS"}
+    sex_map = {0: "F", 1: "M"}
+    result_df["school"] = result_df["school"].map(school_map).fillna(result_df["school"])
+    result_df["sex"] = result_df["sex"].map(sex_map).fillna(result_df["sex"])
     result_df["G4_Predicted"] = result_df["G4_Predicted"].round(2)
     print(result_df.to_string(index=False))
 
